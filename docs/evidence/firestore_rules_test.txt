@@ -1,0 +1,64 @@
+▶ Allowed operations
+  ✔ anyone can read the non-personal group catalogue (needed for registration) (429.6737ms)
+  ✔ active student reads published timetables and exams via status-filtered queries (728.2748ms)
+  ✔ new user registers: pending profile + SAP ID claim in one transaction (330.8209ms)
+  ✔ student edits own cosmetic preferences (233.7862ms)
+  ✔ admin approves a student and publishes an exam with an audit record (181.6197ms)
+  ✔ content manager publishes an announcement (162.4941ms)
+  ✔ admin grants another user a role (145.8512ms)
+✔ Allowed operations (5507.2561ms)
+▶ Denied operations
+  ✔ unauthenticated users cannot read rooms, exams or students (215.3982ms)
+  ✔ pending (unapproved) student cannot read timetables or exams (146.1948ms)
+  ✔ active student cannot read drafts, or query without the published filter (205.2724ms)
+[2026-10-20T15:30:44.146Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae3c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L91:24 for 'update' @ L91, false for 'update' @ L91
+[2026-10-20T15:30:44.199Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae3d error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L91:24 for 'update' @ L91, false for 'update' @ L91
+  ✔ student cannot approve themselves, change group, or self-register as active (277.5751ms)
+[2026-10-20T15:30:44.362Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae40 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L103, false for 'update' @ L104, false for 'update' @ L104
+[2026-10-20T15:30:44.387Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae41 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L83:24 for 'create' @ L83, evaluation error at L91:24 for 'update' @ L91, false for 'create' @ L83
+  ✔ a SAP ID already claimed by someone else cannot be registered again (133.8893ms)
+  ✔ student cannot read another student or list the SAP index (146.2055ms)
+[2026-10-20T15:30:44.683Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae46 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L110, false for 'update' @ L110
+[2026-10-20T15:30:44.700Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae47 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L59:32 for 'create' @ L59, evaluation error at L59:32 for 'update' @ L59, false for 'create' @ L59
+[2026-10-20T15:30:44.743Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae48 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L38:32 for 'create' @ L38, evaluation error at L38:32 for 'update' @ L38, false for 'create' @ L38
+  ✔ student cannot grant themselves admin or write academic data (208.0386ms)
+[2026-10-20T15:30:44.846Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae4a error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L38:32 for 'create' @ L38, evaluation error at L38:32 for 'update' @ L38, false for 'create' @ L38
+[2026-10-20T15:30:44.875Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae4b error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L31:71 for 'create' @ L31, evaluation error at L31:71 for 'update' @ L31, false for 'create' @ L31
+[2026-10-20T15:30:44.891Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae4c error. Code: 7 Message: 7 PERMISSION_DENIED: 
+evaluation error at L110:32 for 'create' @ L110, evaluation error at L110:32 for 'update' @ L110, false for 'create' @ L110
+  ✔ content manager cannot touch timetables, rooms or roles (147.988ms)
+[2026-10-20T15:30:45.074Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae4e error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L110, false for 'update' @ L110
+[2026-10-20T15:30:45.086Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae4f error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'delete' @ L112
+  ✔ admin cannot change or remove their own role (194.7216ms)
+[2026-10-20T15:30:45.210Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae51 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L59, false for 'update' @ L59
+[2026-10-20T15:30:45.226Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae52 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L59, false for 'update' @ L59
+  ✔ writes must be stamped with the real actor; invalid status values are rejected (139.623ms)
+[2026-10-20T15:30:45.351Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae54 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'update' @ L119
+[2026-10-20T15:30:45.377Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae55 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'delete' @ L119
+[2026-10-20T15:30:45.397Z]  @firebase/firestore: Firestore (11.10.0): GrpcConnection RPC 'Write' stream 0x5d20ae56 error. Code: 7 Message: 7 PERMISSION_DENIED: 
+false for 'create' @ L118, false for 'update' @ L119
+  ✔ audit log is append-only and cannot be forged (171.217ms)
+✔ Denied operations (1987.917ms)
+ℹ tests 18
+ℹ suites 2
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12461.7445

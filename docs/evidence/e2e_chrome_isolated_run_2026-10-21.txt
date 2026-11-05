@@ -1,0 +1,159 @@
+Dedicated emulator: Firestore 127.0.0.1:8180, Auth 127.0.0.1:9180, project demo-campussync-e2e
+[36m[1mi  emulators:[22m[39m Starting emulators: auth, firestore
+[36m[1mi  emulators:[22m[39m Detected demo project ID "demo-campussync-e2e", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.
+[33m[1m!  emulators:[22m[39m It seems that you are running multiple instances of the emulator suite for project demo-campussync-e2e. This may result in unexpected behavior.
+[36m[1mi  firestore:[22m[39m Firestore Emulator logging to [1mfirestore-debug.log[22m
+[32m[1m+  firestore:[22m[39m Firestore Emulator UI websocket is running on 9151.
+[36m[1mi [22m[39m Running script: [1mnode run_all.mjs[22m
+CampusSync admin web E2E — 2026-10-21T04:13:47.636Z — emulator 127.0.0.1:8180 (demo-campussync-e2e)
+
+=== admin_timetable.e2e.mjs ===
+PASS TT-01 Timetables page lists Div B v1 as published
+PASS TT-02 Empty draft cannot be published (validation error shown)
+PASS TT-03 Unsupported .pdf upload is rejected with a clear message
+  screenshot docs/screenshots/90_web_tt_unsupported_file.png
+PASS TT-04 Malformed CSV: 0 entries, line-level errors, Apply disabled
+  screenshot docs/screenshots/91_web_tt_malformed_csv.png
+PASS TT-05 Conflicting CSV parses (2 entries) for preview
+PASS TT-06 Double-booked room is reported as a validation error
+  screenshot docs/screenshots/92_web_tt_conflict_blocked.png
+PASS TT-07 Valid CSV previews 4 entries, 0 errors
+PASS TT-08 Mappings resolved in preview: room CR 201, faculty name, batch
+PASS TT-09 Valid draft shows 0 errors
+  screenshot docs/screenshots/93_web_tt_valid_preview.png
+PASS TT-10 Saved draft is NOT visible to a Div B student — student sees v1
+PASS TT-11 Student query for drafts is denied by rules — HTTP 403
+PASS TT-12 After publish the Div B student sees v2 (4 entries) and v1 is archived — published: v2
+PASS TT-13 Source provenance recorded from the uploaded file — Uploaded file: test_valid_timetable.csv
+PASS TT-14 Div C student still sees only Div C v1 (no leak between divisions)
+PASS TT-15 After reload: v2 published, v1 archived (persisted in Firestore)
+  screenshot docs/screenshots/94_web_tt_published_v2.png
+PASS TT-16 Rollback: student sees v1 again (38 source entries)
+  screenshot docs/screenshots/95_web_tt_rolled_back.png
+PASS NET No requests to Firebase production or to other local emulators
+
+Timetable workflow (Chrome): 17/17 checks passed
+
+=== admin_rooms_announcements.e2e.mjs ===
+PASS RM-01 Floor 2 source rooms present (TR 201–203)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS RM-02 Duplicate room id CR-201 is rejected ("Room already exists")
+  screenshot docs/screenshots/96_web_room_duplicate_rejected.png
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS RM-03 Capacity 0 is rejected ("Enter 1–1000")
+PASS RM-04 Test room persisted on Floor 2 with capacity 40 — {"floor":"2","cap":40}
+PASS RM-05 After reload the edit persisted (inactive + note shown)
+  screenshot docs/screenshots/97_web_room_edited.png
+PASS RM-06 Firestore record updated (active=false) and audit-stamped
+PASS RM-07 Two audit entries recorded for the room (create + edit) — 2 entries
+PASS RM-08 Student write to rooms is rejected by rules — HTTP 403
+PASS AN-01 Empty title is rejected ("Title is required.")
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS AN-02 Malformed registration URL is rejected
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS AN-03 End date before start date is rejected
+  screenshot docs/screenshots/98_web_announcement_validation.png
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS AN-04 Draft persisted with exact URL and dates
+PASS AN-05 Draft is NOT visible to students
+PASS AN-06 Direct student read of the draft is denied — HTTP 403
+PASS AN-07 Published announcement is visible to students
+  screenshot docs/screenshots/99_web_announcement_published.png
+PASS AN-08 After archive students no longer see it
+PASS AN-09 Hard delete is refused even for an admin (archive keeps history) — HTTP 403
+PASS NET No requests to Firebase production or to other local emulators
+
+Rooms & announcements workflow (Chrome): 18/18 checks passed
+
+=== admin_exams_access.e2e.mjs ===
+PASS EX-01 Malformed exam time "9am" is rejected (HH:MM)
+PASS EX-02 End before start is rejected
+PASS EX-03 Edit/save keeps provenance, official code, stream, time source, status and group links — 702CO0C056 · e 19, column 'COMPUTER ENGINEERING' · 2 groups
+PASS EX-04 Editing an open-elective exam keeps its elective link and empty group list
+PASS EX-04b Editing keeps the specific elective name (not the generic "Open Elective I") — 5G for Everyone
+PASS EX-05 Record needing review is shown with its review note (not silently verified)
+  screenshot docs/screenshots/a0_web_exam_review_flag.png
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS EX-06 Duplicate (same subject, date and group) is refused
+  screenshot docs/screenshots/a1_web_exam_duplicate_refused.png
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS EX-07 Overlap with another exam for the same group is refused
+PASS EX-06b Refused record (duplicate check) was not written to Firestore — 0 saved
+PASS EX-07b Refused record (clash check) was not written to Firestore — 0 saved
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS EX-08 New exam saved as DRAFT — draft
+PASS EX-09 Draft exam not visible to students
+PASS EX-10 After publish the exam is visible to students
+PASS EX-11 Withdrawn exam hidden from students but kept as a record
+PASS EX-12 Student sees 124 published source exams + 0 QA records (other streams readable but unlinked) — 124 published
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS CA-01 Calendar event with end before start is refused
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+  [pageerror] Cannot read properties of null (reading 'toString')     at call$0 (http://localhost:8765/main.dart.js:59026:16) <-     at call$0 (http://localhost:8765/main.dart.js:58751:48) <-     at call$2 (http://localhost:8765/main.dart.js:59064:35) <-     at forEach$1 (http://localhost:8765/main.dart.js:75107:16) <-     at _handleEvent$1 (http://localhost:8765/main.dart.js:58923:45)
+PASS CA-02 Valid calendar event persisted
+  screenshot docs/screenshots/a2_web_calendar_event_saved.png
+PASS AC-01 Pending (unapproved) student cannot read exams — HTTP 403
+PASS AC-02 Student cannot grant themselves admin
+PASS AC-03 Student cannot approve/change their own status or group
+PASS AC-04 Student cannot read the audit log
+PASS AC-05 Student cannot read another student profile
+PASS AC-06 Student cannot publish an exam directly via the API
+PASS AC-07 Pending TEST student listed for review
+PASS AC-08 Approval sets status=active and assigns Div B
+PASS AC-09 After approval the student can read published exams
+PASS AC-10 Audit log shows the approval and exam changes with the admin identity
+  screenshot docs/screenshots/a3_web_audit_log.png
+PASS AC-11 Content manager has no Timetables/Rooms/Students/Administrators sections
+PASS AC-12 Content manager blocked from timetables by rules too (not only hidden in UI)
+  screenshot docs/screenshots/a4_web_content_manager_view.png
+PASS NET No requests to Firebase production or to other local emulators
+
+Exams, calendar & access-control workflow (Chrome): 30/30 checks passed
+
+=== student_registration.e2e.mjs ===
+[36m[1mi [22m[39m To verify the email address test.squatter.91516@campussync.test, follow this link: http://127.0.0.1:9180/emulator/action?mode=verifyEmail&lang=en&oobCode=M-SOB8c9azJNtIrlHhNU2jUB3_24asg1g6nswGKxAu14nz22JkyT4O&apiKey=fake-api-key
+PASS RG-01 Sign-up shows the verify-email step
+PASS RG-02 No profile or SAP ID claim before verification
+PASS RG-03 After "I have verified" the "Complete your profile" form appears
+PASS RG-04 Pending-approval screen shown
+PASS RG-05 Profile stores the verified sign-in email, pending, with the SAP claim — {"email":"test.squatter.91516@campussync.test","status":"pending"}
+PASS RG-05b Submitted values were prefilled from sign-up (nothing retyped)
+[36m[1mi [22m[39m To verify the email address test.rightful.91516@campussync.test, follow this link: http://127.0.0.1:9180/emulator/action?mode=verifyEmail&lang=en&oobCode=sQrLLJ0irQYHmhwvwoOkP0uY7MP9hpGlODRdVL6qnEzQDh-TOzmpiE&apiKey=fake-api-key
+PASS RG-06 Duplicate SAP ID refused with a clear message
+PASS RG-07 No profile written for the refused account
+  screenshot docs/screenshots/f0_registration_duplicate_sap.png
+PASS RG-08 Approval card marks verified vs self-declared details
+  screenshot docs/screenshots/f1_admin_identity_labels.png
+PASS RG-09 Release suspends the claimant, frees the SAP ID and is audited
+PASS RG-10 Rightful student registers after the release
+PASS RG-11 SAP ID now claimed by the rightful account
+PASS NET No requests to Firebase production or to other local emulators
+
+Student registration & SAP ID recovery (Chrome): 13/13 checks passed
+
+4/4 suites passed
+[32m[1m+ [22m[39m Script exited successfully (code 0)
+[36m[1mi  emulators:[22m[39m Shutting down emulators.
+[36m[1mi  firestore:[22m[39m Stopping Firestore Emulator
+[33m[1m! [22m[39m Firestore Emulator has exited upon receiving signal: SIGINT
+[36m[1mi  auth:[22m[39m Stopping Authentication Emulator
+[36m[1mi  hub:[22m[39m Stopping emulator hub
+[36m[1mi  logging:[22m[39m Stopping Logging Emulator

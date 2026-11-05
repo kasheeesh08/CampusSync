@@ -1,0 +1,76 @@
++0: loading <repo>/app/test/domain_test.dart
++0: <repo>/app/test/domain_test.dart: Seed data integrity Div B and Div C have separate published timetables
++1: <repo>/app/test/exam_test.dart: Exam import (source: final exam timetable PDF, pages 19-24) Counts match the transcription and every record has provenance
++2: <repo>/app/test/domain_test.dart: Seed data integrity Every seeded timetable references known rooms, subjects and faculty
++3: <repo>/app/test/domain_test.dart: Seed data integrity Every seeded timetable references known rooms, subjects and faculty
++4: <repo>/app/test/exam_test.dart: Exam import (source: final exam timetable PDF, pages 19-24) Cell-specific times override the page default
++5: <repo>/app/test/domain_test.dart: Seed data integrity Validator surfaces the source cross-division overlaps as warnings
++6: <repo>/app/test/exam_test.dart: Exam import (source: final exam timetable PDF, pages 19-24) Open-elective exams link to offerings; spelling differences are flagged, not silent
++7: <repo>/app/test/domain_test.dart: Seed data integrity Floor 2 is integrated from its layout image without duplicate room ids
++8: <repo>/app/test/exam_test.dart: Exam import (source: final exam timetable PDF, pages 19-24) Imported data passes validation (no errors); unlinked streams are warnings
++9: <repo>/app/test/exam_test.dart: Exam import (source: final exam timetable PDF, pages 19-24) Imported data passes validation (no errors); unlinked streams are warnings
++10: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++11: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++12: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++13: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++14: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++15: <repo>/app/test/logic_test.dart: Input validation (positive) valid email, password, SAP ID, roll number and name are accepted
++16: <repo>/app/test/domain_test.dart: Availability engine Overlapping classes of different durations are all reported
++17: <repo>/app/test/exam_test.dart: Exam validation Bad times, unknown groups and out-of-window dates are reported
++18: <repo>/app/test/domain_test.dart: Availability engine Cancelled entries and break/library rows do not occupy rooms
++19: <repo>/app/test/logic_test.dart: Input validation (negative) empty and malformed email
++20: <repo>/app/test/logic_test.dart: Input validation (negative) empty and malformed email
++21: <repo>/app/test/exam_test.dart: Exam validation Withdrawn (archived) exams are ignored for duplicate checks
++22: <repo>/app/test/domain_test.dart: Availability engine Missing and inactive room records are not reported as free
++23: <repo>/app/test/logic_test.dart: Input validation (negative) weak or mismatched password
++24: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++25: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++26: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++27: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++28: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++29: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++30: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++31: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++32: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++33: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++34: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++35: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++36: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++37: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++38: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++39: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++40: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++41: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++42: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++43: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++44: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++45: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++46: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++47: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++48: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++49: <repo>/app/test/exam_test.dart: Student visibility Students see their group exams plus exams of chosen electives only
++50: <repo>/app/test/logic_test.dart: Demo repository admin workflow draft is hidden from students until published; rollback restores previous version
++51: <repo>/app/test/exam_test.dart: Student visibility Draft and withdrawn exams never reach students; republishing restores them
++52: <repo>/app/test/logic_test.dart: Demo repository admin workflow published versions cannot be edited in place
++53: <repo>/app/test/exam_test.dart: Student visibility Exam reminders are planned the evening before each of the student's exams
++54: <repo>/app/test/logic_test.dart: Demo repository admin workflow a newly added group with a published timetable affects room availability
++55: <repo>/app/test/logic_test.dart: Demo repository admin workflow admins cannot change their own role; duplicate SAP IDs are rejected
++56: <repo>/app/test/logic_test.dart: Reminder planning class reminders honour lead time, skip breaks and past classes, and have stable keys
++57: <repo>/app/test/logic_test.dart: Reminder planning disabled reminders and unpublished deadlines produce nothing
++58: <repo>/app/test/logic_test.dart: Reminder planning exam reminder fires the evening before
++59: <repo>/app/test/registration_form_test.dart: Editing one field does not show errors on untouched fields
++59: <repo>/app/test/session_test.dart: Regression: a persisted sign-in loads data on cold start without a manual refresh
++60: <repo>/app/test/registration_form_test.dart: Editing one field does not show errors on untouched fields
++61: <repo>/app/test/registration_form_test.dart: Editing one field does not show errors on untouched fields
++61: <repo>/app/test/session_test.dart: Refresh picks up an admin group reassignment; a batch from the old group is ignored
++62: <repo>/app/test/registration_form_test.dart: Editing one field does not show errors on untouched fields
++62: <repo>/app/test/session_test.dart: Refresh after suspension stops at the suspended gate and fetches nothing new
++63: <repo>/app/test/registration_form_test.dart: Editing one field does not show errors on untouched fields
++64: <repo>/app/test/widget_test.dart: Demo onboarding validates input and opens the campus home
++65: <repo>/app/test/widget_test.dart: Demo onboarding validates input and opens the campus home
++65: <repo>/app/test/registration_form_test.dart: Malformed identifiers are rejected with field-specific messages
++66: <repo>/app/test/widget_test.dart: Demo onboarding validates input and opens the campus home
++67: <repo>/app/test/widget_test.dart: Demo onboarding validates input and opens the campus home
++68: <repo>/app/test/registration_form_test.dart: A rejected registration (SAP ID already claimed) is reported and the form stays open
++69: <repo>/app/test/registration_form_test.dart: A valid form submits once with normalised values
++70: All tests passed!
