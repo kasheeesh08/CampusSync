@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/build_seed.py",
+ "jobs": [
+  {
+   "id": "import-exams-odd-2026-27",
+   "kind": "exams",
+   "sourceFile": "final exam timetable/MPSTME_ODD_Semester_Final_Exam_Time_Table_2026_2027_4ycvxuhivW.pdf",
+   "sourceIssued": "2026-10-01",
+   "pagesImported": "19-24 (B.Tech Year III, Semester V)",
+   "importedOn": "2026-10-20",
+   "method": "Manual transcription from rendered page images (scan has no text layer)",
+   "counts": {
+    "records": 124,
+    "core": 88,
+    "openElective": 36,
+    "linkedToGroups": 5,
+    "streams": 15
+   },
+   "errors": [],
+   "warnings": [
+    "Open elective 'Data Analytics' (OE-1) has no exam on page 24.",
+    "No final exam is listed for Computer Engineering subject MAD on pages 19-20."
+   ],
+   "notImported": "Pages 1-18 and 25-40 (other programmes/semesters): no matching academic groups exist yet."
+  }
+ ]
+}

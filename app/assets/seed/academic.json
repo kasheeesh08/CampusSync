@@ -1,0 +1,221 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/build_seed.py",
+ "institutions": [
+  {
+   "id": "nmims-mpstme-mumbai",
+   "name": "SVKM's NMIMS Mukesh Patel School of Technology Management & Engineering",
+   "shortName": "MPSTME",
+   "campus": "Mumbai"
+  }
+ ],
+ "departments": [
+  {
+   "id": "dept-computer-engg",
+   "institutionId": "nmims-mpstme-mumbai",
+   "name": "Computer Engineering",
+   "active": true
+  }
+ ],
+ "programs": [
+  {
+   "id": "prog-btech-computer",
+   "departmentId": "dept-computer-engg",
+   "name": "B.Tech Computer Engineering",
+   "durationYears": 4,
+   "active": true
+  }
+ ],
+ "academicYears": [
+  {
+   "id": "ay-2026-27",
+   "label": "2026-27",
+   "start": "2026-07-13",
+   "end": "2027-07-11",
+   "active": true
+  }
+ ],
+ "groups": [
+  {
+   "id": "btech-computer-2026-27-sem5-div-b",
+   "type": "division",
+   "programId": "prog-btech-computer",
+   "departmentId": "dept-computer-engg",
+   "academicYearId": "ay-2026-27",
+   "yearOfStudy": 3,
+   "semester": 5,
+   "division": "B",
+   "label": "B.Tech Computer · Sem V · Div B",
+   "active": true,
+   "batches": [
+    "B1",
+    "B2"
+   ]
+  },
+  {
+   "id": "btech-computer-2026-27-sem5-div-c",
+   "type": "division",
+   "programId": "prog-btech-computer",
+   "departmentId": "dept-computer-engg",
+   "academicYearId": "ay-2026-27",
+   "yearOfStudy": 3,
+   "semester": 5,
+   "division": "C",
+   "label": "B.Tech Computer · Sem V · Div C",
+   "active": true,
+   "batches": [
+    "C1",
+    "C2"
+   ]
+  },
+  {
+   "id": "oe1-2026-27-odd",
+   "type": "electivePool",
+   "programId": null,
+   "departmentId": null,
+   "academicYearId": "ay-2026-27",
+   "yearOfStudy": null,
+   "semester": 5,
+   "division": null,
+   "label": "Open Elective I (Mon–Wed 4–6 pm)",
+   "active": true,
+   "batches": []
+  },
+  {
+   "id": "oe2-2026-27-odd",
+   "type": "electivePool",
+   "programId": null,
+   "departmentId": null,
+   "academicYearId": "ay-2026-27",
+   "yearOfStudy": null,
+   "semester": 5,
+   "division": null,
+   "label": "Open Elective II (Thu–Fri 4–6 pm)",
+   "active": true,
+   "batches": []
+  }
+ ],
+ "subjects": [
+  {
+   "code": "SE",
+   "name": "Software Engineering",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "AI",
+   "name": "Artificial Intelligence",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "IVP",
+   "name": "Image and Video Processing",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "OS",
+   "name": "Operating Systems",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "MAD",
+   "name": "Mobile Application Development",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "OR",
+   "name": "Operations Research",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "OE-1",
+   "name": "Open Elective I",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  },
+  {
+   "code": "OE-2",
+   "name": "Open Elective II",
+   "programId": "prog-btech-computer",
+   "semester": 5
+  }
+ ],
+ "faculty": [
+  {
+   "id": "fac-prashasti-kanikar",
+   "name": "Dr. Prashasti Kanikar",
+   "initials": [
+    "PRK"
+   ]
+  },
+  {
+   "id": "fac-archana-nanade",
+   "name": "Dr. Archana Nanade",
+   "initials": [
+    "ANA"
+   ]
+  },
+  {
+   "id": "fac-hiral-modi",
+   "name": "Prof. Hiral Modi",
+   "initials": [
+    "HMO"
+   ]
+  },
+  {
+   "id": "fac-supriya-agarwal",
+   "name": "Dr. Supriya Agarwal",
+   "initials": [
+    "SAG"
+   ]
+  },
+  {
+   "id": "fac-aishwarinandini-bishnu",
+   "name": "Prof. Aishwarinandini Bishnu",
+   "initials": [
+    "VAR",
+    "VAN"
+   ]
+  },
+  {
+   "id": "fac-govind-wakure",
+   "name": "Prof. Govind Wakure",
+   "initials": [
+    "VGW"
+   ]
+  },
+  {
+   "id": "fac-shabnam-ansari",
+   "name": "Prof. Shabnam Ansari",
+   "initials": [
+    "SAN"
+   ]
+  },
+  {
+   "id": "fac-ravita-mishra",
+   "name": "Dr. Ravita Mishra",
+   "initials": [
+    "RMI"
+   ]
+  },
+  {
+   "id": "fac-avani-bhuva",
+   "name": "Prof. Avani Bhuva",
+   "initials": [
+    "AVB"
+   ]
+  },
+  {
+   "id": "fac-ishani-saha",
+   "name": "Prof. Ishani Saha",
+   "initials": [
+    "ISA"
+   ]
+  }
+ ]
+}

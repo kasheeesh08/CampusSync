@@ -1,0 +1,1000 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/build_seed.py",
+ "offerings": [
+  {
+   "id": "oe1-00",
+   "slot": "OE-1",
+   "name": "Drone Technology",
+   "offeringDepartment": "EXTC",
+   "roomIds": [
+    "CR-504"
+   ],
+   "labRoomId": "LAB-ADVANCE-COMMUNICATION-LAB",
+   "faculty": "Prof. Pavankumar Borra",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-01",
+   "slot": "OE-1",
+   "name": "5G for Everyone",
+   "offeringDepartment": "EXTC",
+   "roomIds": [
+    "TR-501"
+   ],
+   "labRoomId": "LAB-BASIC-COMMUNICATION-LAB",
+   "faculty": "Dr. Sonal Parmar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-02",
+   "slot": "OE-1",
+   "name": "Wireless Communications for Everybody",
+   "offeringDepartment": "EXTC",
+   "roomIds": [
+    "TR-601"
+   ],
+   "labRoomId": "LAB-DE-LAB",
+   "faculty": "Dr. Archana Bomnale",
+   "reviewFlags": [
+    "Lab listed as 'Digital Electronics lab'; mapped to DE Lab on Floor 4."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-03",
+   "slot": "OE-1",
+   "name": "Fundamentals of Climate Change",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-602"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Apurva Mehta",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-04",
+   "slot": "OE-1",
+   "name": "Disaster Management",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-603"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Deoyani Joshi",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-05",
+   "slot": "OE-1",
+   "name": "Interior Design",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-506"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Manoj Anakokar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-06",
+   "slot": "OE-1",
+   "name": "Research Methodology",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-503"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Meenal Mategaonkar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-07",
+   "slot": "OE-1",
+   "name": "Introduction to GIS",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-404"
+   ],
+   "labRoomId": "CL-803",
+   "faculty": "Dr. Sunayana Sarkar",
+   "reviewFlags": [
+    "Lab CL-803 is listed although the module has 0 practical hours; lab schedule not stated."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-08",
+   "slot": "OE-1",
+   "name": "Smart Cities",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-501"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Darshana Lade",
+   "reviewFlags": [
+    "Source also lists 'Tue(5-6) & Wed (2-6)'; meaning unclear, not scheduled."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-09",
+   "slot": "OE-1",
+   "name": "Renewable Energy Sources",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-508",
+    "CR-509"
+   ],
+   "labRoomId": null,
+   "faculty": "Abhishek Priyam, Nilesh Balki",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-10",
+   "slot": "OE-1",
+   "name": "3D Printing",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-604"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Samadhan Deshmukh",
+   "reviewFlags": [
+    "Lab '3D Printing Lab, 8th floor' does not appear on the Floor 8 plan; lab sessions not mapped to a room."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-11",
+   "slot": "OE-1",
+   "name": "Industrial Ergonomics",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-507"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Ravi Terkar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-12",
+   "slot": "OE-1",
+   "name": "Engineering Materials for Daily Life",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-502"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Adam Khan",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-13",
+   "slot": "OE-1",
+   "name": "Electric Vehicle Technology",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-407"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Rojo Kurian Daniel",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-14",
+   "slot": "OE-1",
+   "name": "Elements of Automation",
+   "offeringDepartment": "MXTC",
+   "roomIds": [
+    "CR-702"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Nirmal Thakur",
+   "reviewFlags": [
+    "Lab listed as 'IOT and Sensorics, Hydraulics, Pneumatics and Robotics' (several rooms); lab sessions not mapped."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-15",
+   "slot": "OE-1",
+   "name": "Supervisory Control and Data Acquisition",
+   "offeringDepartment": "MXTC",
+   "roomIds": [
+    "CC-801"
+   ],
+   "labRoomId": "CL-801",
+   "faculty": "Dr. Dattatray Sawant",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-16",
+   "slot": "OE-1",
+   "name": "Introduction to Virtual Reality and Augmented Reality",
+   "offeringDepartment": "MXTC",
+   "roomIds": [
+    "CC-702"
+   ],
+   "labRoomId": "LAB-AR-VR-LAB",
+   "faculty": "Dr. Sunny Nanade",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-17",
+   "slot": "OE-1",
+   "name": "Data Analytics",
+   "offeringDepartment": "DS",
+   "roomIds": [],
+   "labRoomId": null,
+   "faculty": null,
+   "reviewFlags": [
+    "Row has credits only (2-2-0-3); room, faculty and timing are blank in the source."
+   ],
+   "sessions": []
+  },
+  {
+   "id": "oe1-18",
+   "slot": "OE-1",
+   "name": "Basic Decision Making with Spreadsheet",
+   "offeringDepartment": "DS",
+   "roomIds": [
+    "CC-803"
+   ],
+   "labRoomId": "CL-706",
+   "faculty": "Rushabh Sir (VF)",
+   "reviewFlags": [
+    "Faculty given only as 'RUSHABH SIR'."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    },
+    {
+     "weekday": 3,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lab"
+    }
+   ]
+  },
+  {
+   "id": "oe1-19",
+   "slot": "OE-1",
+   "name": "Game Design",
+   "offeringDepartment": "IT",
+   "roomIds": [
+    "CR-605"
+   ],
+   "labRoomId": null,
+   "faculty": "Pratidnya Hedge Partil",
+   "reviewFlags": [
+    "Source spells the module 'Game Desing'."
+   ],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe1-20",
+   "slot": "OE-1",
+   "name": "Sustainable Energy Technologies",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "CR-606"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Abhinaba Gupta",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 1,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 2,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-00",
+   "slot": "OE-2",
+   "name": "Modelling and Simulation",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "CR-401"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Mahesh Naik",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-01",
+   "slot": "OE-2",
+   "name": "Introduction to Forensic Science",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "CR-605",
+    "CR-606"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Sanket Gudekar, Dr. Ketakee Durve",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-02",
+   "slot": "OE-2",
+   "name": "Quantum Computing and Technologies",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "TR-601"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Sreemoyee Sarkar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-03",
+   "slot": "OE-2",
+   "name": "Environment Management",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "TR-401"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Chandan Maitrani",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-04",
+   "slot": "OE-2",
+   "name": "Life Skills",
+   "offeringDepartment": "BSH",
+   "roomIds": [
+    "CR-602"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Priyal Panchal",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-05",
+   "slot": "OE-2",
+   "name": "Creativity and Ethics in Marketing",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-608",
+    "CR-609"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Saloni Rajawat / Prof. Shobha Mathew",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-06",
+   "slot": "OE-2",
+   "name": "Leading through Life Skills",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-701",
+    "CR-702"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Neerja Kalluri, Dr. Shyamlee D Solanki",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-07",
+   "slot": "OE-2",
+   "name": "Technology and Innovation for Marketing",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-607"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Sandeep Mallya",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-08",
+   "slot": "OE-2",
+   "name": "Financial Derivatives",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-407",
+    "CR-408"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof Sampat K, Prof CA Shiv Pathak",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-09",
+   "slot": "OE-2",
+   "name": "Financial Institutions, Markets, Instruments and Services",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-503",
+    "CR-504"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof Vishwanath Acharya, Prof CA Jasmin bid",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-10",
+   "slot": "OE-2",
+   "name": "Management Through Movies",
+   "offeringDepartment": "TM",
+   "roomIds": [
+    "CR-604",
+    "CR-703"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Dasika, Prof. Anand Desai",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-11",
+   "slot": "OE-2",
+   "name": "Advertising and Public Relations",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "CR-506"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Manoj Anakokar",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-12",
+   "slot": "OE-2",
+   "name": "Waste Management",
+   "offeringDepartment": "Civil",
+   "roomIds": [
+    "TR-501"
+   ],
+   "labRoomId": null,
+   "faculty": "Prof. Deoyani Joshi",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-13",
+   "slot": "OE-2",
+   "name": "Production Management",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-508"
+   ],
+   "labRoomId": null,
+   "faculty": "Abira Mukherjee",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-14",
+   "slot": "OE-2",
+   "name": "Elements of Project Management",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-509"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Rajesh Patil",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  },
+  {
+   "id": "oe2-15",
+   "slot": "OE-2",
+   "name": "Operations and Supply Chain Management",
+   "offeringDepartment": "Mechanical",
+   "roomIds": [
+    "CR-601"
+   ],
+   "labRoomId": null,
+   "faculty": "Dr. Ashish Deshmukh",
+   "reviewFlags": [],
+   "sessions": [
+    {
+     "weekday": 4,
+     "start": "16:00",
+     "end": "18:00",
+     "kind": "lecture"
+    },
+    {
+     "weekday": 5,
+     "start": "16:00",
+     "end": "17:00",
+     "kind": "lecture"
+    }
+   ]
+  }
+ ]
+}

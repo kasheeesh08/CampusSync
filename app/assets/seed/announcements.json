@@ -1,0 +1,63 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/build_seed.py",
+ "announcements": [
+  {
+   "id": "ann-isl-winter-internship-2026",
+   "title": "India Space Lab Winter Internship and Technical Training Program 2026–27",
+   "status": "draft",
+   "category": "internship",
+   "summary": null,
+   "description": null,
+   "startDate": null,
+   "endDate": null,
+   "registrationUrl": null,
+   "imageUrl": null,
+   "audience": {
+    "scope": "all"
+   },
+   "source": "Supplied by the project team (details pending)",
+   "reviewFlags": [
+    "Dates, description and registration link were not available in the workspace; complete before publishing."
+   ]
+  },
+  {
+   "id": "ann-icpc-india-regionals-2026",
+   "title": "ICPC India Regional Contests 2026",
+   "status": "draft",
+   "category": "competition",
+   "summary": null,
+   "description": null,
+   "startDate": null,
+   "endDate": null,
+   "registrationUrl": null,
+   "imageUrl": null,
+   "audience": {
+    "scope": "all"
+   },
+   "source": "Supplied by the project team (details pending)",
+   "reviewFlags": [
+    "Dates, description and registration link were not available in the workspace; complete before publishing."
+   ]
+  },
+  {
+   "id": "ann-qiskit-fall-fest-2026",
+   "title": "Qiskit Fall Fest 2026 at MPSTME",
+   "status": "draft",
+   "category": "event",
+   "summary": null,
+   "description": null,
+   "startDate": null,
+   "endDate": null,
+   "registrationUrl": null,
+   "imageUrl": null,
+   "audience": {
+    "scope": "all"
+   },
+   "source": "Supplied by the project team (details pending)",
+   "reviewFlags": [
+    "Dates, description and registration link were not available in the workspace; complete before publishing."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,328 @@
+{
+ "schemaVersion": 1,
+ "generatedBy": "tools/build_seed.py",
+ "audiences": {
+  "btech-mbatech-year2to6": {
+   "label": "All programs (Year 2–6), M Tech, MCA (Year 1 and 2)",
+   "programIds": [
+    "prog-btech-computer"
+   ],
+   "yearsOfStudy": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "mbatech-year5": {
+   "label": "MBA Tech (year 5 only)",
+   "programIds": [],
+   "yearsOfStudy": [
+    5
+   ]
+  }
+ },
+ "events": [
+  {
+   "id": "cal-odd-00",
+   "title": "Commencement of Term",
+   "category": "term",
+   "start": "2026-07-13",
+   "end": "2026-11-05",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-00-mba5",
+   "title": "Commencement of Term",
+   "category": "term",
+   "start": "2026-09-07",
+   "end": "2026-12-05",
+   "term": "odd",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-01",
+   "title": "Mid Term Test I",
+   "category": "midterm",
+   "start": "2026-08-17",
+   "end": "2026-08-22",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-02",
+   "title": "Mid Term Test – Management subjects (as per teaching scheme)",
+   "category": "midterm",
+   "start": "2026-09-07",
+   "end": "2026-09-12",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-02-mba5",
+   "title": "Mid Term Test – Management subjects (as per teaching scheme)",
+   "category": "midterm",
+   "start": "2026-10-19",
+   "end": "2026-10-24",
+   "term": "odd",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-03",
+   "title": "Mid Term Test II",
+   "category": "midterm",
+   "start": "2026-10-05",
+   "end": "2026-10-10",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-04",
+   "title": "Term End Exam",
+   "category": "termEndExam",
+   "start": "2026-11-16",
+   "end": "2026-12-03",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-04-mba5",
+   "title": "Term End Exam",
+   "category": "termEndExam",
+   "start": "2026-12-10",
+   "end": "2026-12-22",
+   "term": "odd",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-05",
+   "title": "TEE Lab Exam",
+   "category": "labExam",
+   "start": "2026-12-05",
+   "end": "2026-12-10",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-06",
+   "title": "Re-exam",
+   "category": "reExam",
+   "start": "2027-01-28",
+   "end": "2027-02-08",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-06-mba5",
+   "title": "Re-exam",
+   "category": "reExam",
+   "start": "2027-01-28",
+   "end": "2027-02-08",
+   "term": "odd",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-07",
+   "title": "Diwali Vacation",
+   "category": "vacation",
+   "start": "2026-11-06",
+   "end": "2026-11-12",
+   "term": "odd",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-odd-07-mba5",
+   "title": "Diwali Vacation",
+   "category": "vacation",
+   "start": "2026-11-06",
+   "end": "2026-11-12",
+   "term": "odd",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-08",
+   "title": "Commencement of Term",
+   "category": "term",
+   "start": "2027-01-02",
+   "end": "2027-04-23",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-08-mba5",
+   "title": "Commencement of Term",
+   "category": "term",
+   "start": "2027-01-02",
+   "end": "2027-04-23",
+   "term": "even",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-09",
+   "title": "Mid Term Test I",
+   "category": "midterm",
+   "start": "2027-02-10",
+   "end": "2027-02-16",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-10",
+   "title": "Mid Term Test – Management subjects (as per teaching scheme)",
+   "category": "midterm",
+   "start": "2027-03-01",
+   "end": "2027-03-06",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-10-mba5",
+   "title": "Mid Term Test – Management subjects (as per teaching scheme)",
+   "category": "midterm",
+   "start": "2027-03-01",
+   "end": "2027-03-06",
+   "term": "even",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-11",
+   "title": "Mid Term Test II",
+   "category": "midterm",
+   "start": "2027-03-15",
+   "end": "2027-03-20",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-12",
+   "title": "TEE Lab Exam",
+   "category": "labExam",
+   "start": "2027-04-24",
+   "end": "2027-04-28",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-13",
+   "title": "Term End Exam",
+   "category": "termEndExam",
+   "start": "2027-04-30",
+   "end": "2027-05-20",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-13-mba5",
+   "title": "Term End Exam",
+   "category": "termEndExam",
+   "start": "2027-04-30",
+   "end": "2027-05-20",
+   "term": "even",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-14",
+   "title": "Re-exam",
+   "category": "reExam",
+   "start": "2027-06-28",
+   "end": "2027-07-08",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-14-mba5",
+   "title": "Re-exam",
+   "category": "reExam",
+   "start": "2027-06-28",
+   "end": "2027-07-08",
+   "term": "even",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-15",
+   "title": "Winter Vacation",
+   "category": "vacation",
+   "start": "2026-12-26",
+   "end": "2027-01-01",
+   "term": "even",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-even-15-mba5",
+   "title": "Winter Vacation",
+   "category": "vacation",
+   "start": "2026-12-26",
+   "end": "2027-01-01",
+   "term": "even",
+   "audience": "mbatech-year5",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  },
+  {
+   "id": "cal-next-ay",
+   "title": "Commencement of next Academic Year (AY 2027-28)",
+   "category": "term",
+   "start": "2027-07-12",
+   "end": "2027-07-12",
+   "term": "next",
+   "audience": "btech-mbatech-year2to6",
+   "source": "important doc/Academic Calendar - All Programs_Second Year to Six Year_AY 2026-27.pdf",
+   "status": "published"
+  }
+ ],
+ "notes": [
+  "*Dates are subject to change if required. Please reconfirm the dates before booking any tickets.* (source footnote)"
+ ]
+}
