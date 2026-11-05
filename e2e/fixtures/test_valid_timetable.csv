@@ -1,0 +1,5 @@
+weekday,start,end,kind,subject,faculty,room,batch
+Mon,08:00,10:00,lab,SE,PRK,CL 401,B1
+Mon,08:00,10:00,lab,IVP,SAG,CL 503,B2
+Mon,10:00,11:00,lecture,SE,PRK,CR 402,
+Tue,10:00,11:00,lecture,AI,ANA,CR 201,

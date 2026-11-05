@@ -1,0 +1,4 @@
+weekday,start,end,kind,subject,faculty,room
+Funday,08:00,10:00,lab,SE,PRK,CL 401
+Mon,11:00,10:00,lecture,SE,,CR 402
+Mon,08:00,09:00,lecture,SE,XYZ,CR 999

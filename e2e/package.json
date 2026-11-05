@@ -1,0 +1,9 @@
+{
+  "name": "campussync-e2e",
+  "private": true,
+  "type": "module",
+  "description": "Chrome checks of the admin dashboard against the Firebase Local Emulator Suite",
+  "devDependencies": {
+    "puppeteer-core": "^24.43.1"
+  }
+}
