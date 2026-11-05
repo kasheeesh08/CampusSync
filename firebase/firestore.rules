@@ -1,0 +1,246 @@
+rules_version = '2';
+
+// CampusSync authorisation. All permissions are enforced here, never only in
+// the UI. Roles: admin (full), contentManager (announcements/exams/calendar),
+// student (read-only, after administrator approval).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function adminPath() { return /databases/$(database)/documents/admins/$(request.auth.uid); }
+    // L3: staff means an admins document with a recognised role; a document
+    // with a missing or mistyped role grants nothing.
+    function isStaff() {
+      return signedIn() && exists(adminPath()) && get(adminPath()).data.role in ['admin', 'contentManager'];
+    }
+    function isAdmin() { return signedIn() && exists(adminPath()) && get(adminPath()).data.role == 'admin'; }
+    function studentPath() { return /databases/$(database)/documents/students/$(request.auth.uid); }
+    function isActiveStudent() {
+      return signedIn() && exists(studentPath()) && get(studentPath()).data.status == 'active';
+    }
+    function canRead() { return isStaff() || isActiveStudent(); }
+    function stamped() { return request.resource.data.updatedBy == request.auth.uid; }
+    function validStatus(allowed) { return request.resource.data.status in allowed; }
+
+    // M4: an audited write creates its audit record in the same commit. The
+    // written document names that record in `auditId`; it must be new and be
+    // attributed to the signed-in user (the auditLogs rule checks the email).
+    function audited() {
+      return request.resource.data.auditId is string
+        && request.resource.data.auditId.matches('^[A-Za-z0-9]{1,40}$')
+        && !exists(/databases/$(database)/documents/auditLogs/$(request.resource.data.auditId))
+        && getAfter(/databases/$(database)/documents/auditLogs/$(request.resource.data.auditId)).data.actorUid == request.auth.uid;
+    }
+    function staffWrite() { return stamped() && audited(); }
+
+    // M2: audience of the signed-in student, as stored in `audienceKeys` on
+    // announcements and exams ("all", "group:<id>", "dept:<id>", "oe:<id>").
+    function studentAudience() {
+      let s = get(studentPath()).data;
+      let dept = get(/databases/$(database)/documents/groups/$(s.groupId)).data.get('departmentId', null);
+      return ['all', 'group:' + s.groupId,
+        'dept:' + (dept == null ? '-' : dept),
+        'oe:' + (s.get('oe1OfferingId', null) == null ? '-' : s.oe1OfferingId),
+        'oe:' + (s.get('oe2OfferingId', null) == null ? '-' : s.oe2OfferingId)];
+    }
+    function forThisStudent() {
+      return isActiveStudent() && resource.data.status == 'published' && resource.data.audienceKeys.hasAny(studentAudience());
+    }
+    function optText(d, k, max) { return !(k in d) || d[k] == null || (d[k] is string && d[k].size() <= max); }
+    // http(s) only (no javascript: etc.), no spaces, at most 2048 characters.
+    function optUrl(d, k) { return optText(d, k, 2048) && optMatch(d, k, '^https?://[^ ]+$'); }
+    // M3: announcements may contain only these fields, each type- and length-checked.
+    function validAnnouncement(d, id) {
+      return d.keys().hasOnly(['id', 'title', 'status', 'category', 'summary', 'description', 'startDate', 'endDate',
+          'registrationUrl', 'imageUrl', 'audience', 'source', 'updatedAt', 'reviewFlags', 'updatedBy', 'audienceKeys', 'auditId'])
+        && d.id == id
+        && d.status in ['draft', 'published', 'archived']
+        && d.title is string && d.title.size() > 0 && d.title.size() <= 140
+        && d.category in ['event', 'competition', 'internship', 'academic', 'general']
+        && optText(d, 'summary', 200) && optText(d, 'description', 5000) && optText(d, 'source', 300)
+        && optUrl(d, 'registrationUrl') && optUrl(d, 'imageUrl')
+        && optMatch(d, 'startDate', '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && optMatch(d, 'endDate', '^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && d.audience is map && d.audience.scope in ['all', 'department', 'groups']
+        && d.audience.get('ids', []) is list && d.audience.get('ids', []).size() <= 30
+        && d.audienceKeys is list && d.audienceKeys.size() >= 1 && d.audienceKeys.size() <= 30
+        && (d.audience.scope == 'all'
+          ? d.audienceKeys == ['all']
+          : (!('all' in d.audienceKeys) && d.audienceKeys.size() == d.audience.ids.size()))
+        && (!('reviewFlags' in d) || (d.reviewFlags is list && d.reviewFlags.size() <= 20));
+    }
+
+    // Non-personal catalogue, readable during registration.
+    match /groups/{id}        { allow read: if true; allow write: if isAdmin() && staffWrite(); }
+    match /departments/{id}   { allow read: if true; allow write: if isAdmin() && staffWrite(); }
+    match /programs/{id}      { allow read: if true; allow write: if isAdmin() && staffWrite(); }
+    match /academicYears/{id} { allow read: if true; allow write: if isAdmin() && staffWrite(); }
+
+    match /settings/{id}  { allow read: if canRead(); allow write: if isAdmin() && staffWrite(); }
+    // Written only by the seed/import tooling (Admin SDK); no app write path.
+    match /subjects/{id}  { allow read: if canRead(); allow write: if isAdmin(); }
+    match /faculty/{id}   { allow read: if canRead(); allow write: if isAdmin(); }
+    match /electives/{id} { allow read: if canRead(); allow write: if isAdmin(); }
+    match /rooms/{id}     { allow read: if canRead(); allow write: if isAdmin() && staffWrite(); }
+    match /floors/{id}    { allow read: if canRead(); allow write: if isAdmin() && staffWrite(); }
+
+    // Students only ever see published versions; versions are never deleted
+    // so previous timetables remain available for rollback.
+    match /timetableVersions/{id} {
+      allow read: if isStaff() || (isActiveStudent() && resource.data.status == 'published');
+      allow create: if isAdmin() && staffWrite() && validVersion();
+      // L1: a published or archived version is frozen. Only its status moves
+      // (publish, archive, roll back), never back to draft, and no content changes.
+      allow update: if isAdmin() && staffWrite() && validVersion()
+        && (resource.data.status == 'draft'
+          || (request.resource.data.status != 'draft'
+            && request.resource.data.diff(resource.data).affectedKeys()
+              .hasOnly(['status', 'publishedBy', 'publishedAt', 'updatedAt', 'updatedBy', 'auditId'])));
+      allow delete: if false;
+      function validVersion() {
+        return validStatus(['draft', 'published', 'archived'])
+          && request.resource.data.groupId is string
+          && request.resource.data.entries is list
+          && request.resource.data.effectiveFrom is string;
+      }
+    }
+
+    match /announcements/{id} {
+      allow read: if isStaff() || forThisStudent();
+      allow create, update: if isStaff() && staffWrite() && validAnnouncement(request.resource.data, id);
+      allow delete: if false; // archive instead
+    }
+
+    // Students see only published exams/events for their audience; withdrawn ones are archived.
+    match /exams/{id} {
+      allow read: if isStaff() || forThisStudent();
+      allow create, update: if isStaff() && staffWrite()
+        && validStatus(['draft', 'published', 'archived'])
+        && request.resource.data.groupIds is list
+        && request.resource.data.electiveOfferingIds is list
+        && request.resource.data.date is string
+        && request.resource.data.audienceKeys is list
+        && !('all' in request.resource.data.audienceKeys)
+        && request.resource.data.audienceKeys.size()
+          == request.resource.data.groupIds.size() + request.resource.data.electiveOfferingIds.size();
+      allow delete: if isAdmin(); // a delete carries no data, so it can't name an audit record (see SECURITY_AUDIT M4)
+    }
+
+    match /calendarEvents/{id} {
+      allow read: if isStaff() || (isActiveStudent() && resource.data.status == 'published');
+      allow create, update: if isStaff() && staffWrite()
+        && validStatus(['draft', 'published', 'archived'])
+        && request.resource.data.start is string && request.resource.data.end is string;
+      allow delete: if isAdmin(); // see exams
+    }
+
+    // Provenance of bulk imports (written by the seed/import tooling with admin rights).
+    match /importJobs/{id} {
+      allow read: if isStaff();
+      allow write: if isAdmin();
+    }
+
+    // Identity limits: Firebase Auth proves only that the user controls their
+    // sign-in email (and only once it is verified). Name, SAP ID, roll number
+    // and division are self-declared; there is no university roster to check
+    // them against, so an administrator verifies them before approval.
+    function verifiedUser() {
+      return signedIn() && request.auth.token.email_verified == true && request.auth.token.email is string;
+    }
+    function optMatch(d, k, re) { return !(k in d) || d[k] == null || (d[k] is string && d[k].matches(re)); }
+    function validPrefs(d) {
+      return d.displayName is string && d.displayName.size() >= 2 && d.displayName.size() <= 50
+        && d.displayName.matches("^[A-Za-z][A-Za-z .'-]*$")
+        && d.avatar is string && d.avatar.matches('^[a-z]{1,20}$')
+        && optMatch(d, 'batch', '^[A-Za-z0-9-]{1,10}$')
+        && optMatch(d, 'oe1OfferingId', '^[A-Za-z0-9_.-]{1,100}$')
+        && optMatch(d, 'oe2OfferingId', '^[A-Za-z0-9_.-]{1,100}$');
+    }
+    function sapPath(sap) { return /databases/$(database)/documents/sapIndex/$(sap); }
+
+    // Student profiles: private to the student and administrators.
+    match /students/{uid} {
+      allow read: if (signedIn() && request.auth.uid == uid) || isAdmin();
+      // One profile per verified account, created together with its SAP ID claim.
+      // The stored email is the verified sign-in email, never user-typed text.
+      allow create: if verifiedUser() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'displayName', 'sapId', 'rollNumber', 'requestedGroupId',
+            'groupId', 'batch', 'oe1OfferingId', 'oe2OfferingId', 'avatar', 'status', 'createdAt'])
+        && request.resource.data.keys().hasAll(['uid', 'email', 'displayName', 'sapId', 'rollNumber', 'requestedGroupId',
+            'groupId', 'avatar', 'status', 'createdAt'])
+        && request.resource.data.uid == uid
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.status == 'pending'
+        && request.resource.data.groupId == null
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.rollNumber is string && request.resource.data.rollNumber.matches('^[A-Z][0-9]{3}$')
+        && validPrefs(request.resource.data)
+        && request.resource.data.requestedGroupId is string
+        && request.resource.data.requestedGroupId.matches('^[A-Za-z0-9_-]{1,100}$')
+        && get(/databases/$(database)/documents/groups/$(request.resource.data.requestedGroupId)).data.type == 'division'
+        && request.resource.data.sapId is string && request.resource.data.sapId.matches('^[0-9]{8,12}$')
+        && getAfter(sapPath(request.resource.data.sapId)).data.uid == uid;
+      // Students may edit only cosmetic preferences; status and group are admin-only.
+      // An admin can only activate a student who still holds their SAP ID claim.
+      allow update: if (signedIn() && request.auth.uid == uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName', 'avatar', 'batch', 'oe1OfferingId', 'oe2OfferingId'])
+          && validPrefs(request.resource.data))
+        || (isAdmin() && staffWrite() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'groupId', 'updatedBy', 'auditId'])
+          && validStatus(['pending', 'active', 'suspended'])
+          && (request.resource.data.status != 'active' || get(sapPath(resource.data.sapId)).data.uid == uid))
+        // SAP ID release: mark this student released and suspended, only while
+        // they hold their own claim, and only if that claim is deleted in the same write.
+        || (isAdmin() && staffWrite()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'sapReleased', 'updatedBy', 'auditId'])
+          && resource.data.get('sapReleased', false) == false
+          && request.resource.data.sapReleased == true
+          && request.resource.data.status == 'suspended'
+          && get(sapPath(resource.data.sapId)).data.uid == uid
+          && !existsAfter(sapPath(resource.data.sapId)));
+      allow delete: if false;
+    }
+
+    // SAP ID -> uid claim; guarantees one account per SAP ID (and one SAP ID per
+    // account) without exposing a directory of identifiers. Claims are not proof
+    // of identity: a verified user can still claim someone else's SAP ID, which
+    // an administrator resolves by releasing the claim (below).
+    match /sapIndex/{sap} {
+      allow get: if isAdmin() || (verifiedUser() && (resource == null || resource.data.uid == request.auth.uid));
+      allow list: if false;
+      // Only together with the claimant's first and only profile, in the same write.
+      allow create: if verifiedUser()
+        && sap.matches('^[0-9]{8,12}$')
+        && request.resource.data.keys().hasOnly(['uid']) && request.resource.data.uid == request.auth.uid
+        && !exists(studentPath())
+        && getAfter(studentPath()).data.sapId == sap;
+      allow update: if false;
+      // Recovery: an admin releases a wrongly claimed SAP ID. Only the claim's
+      // own holder (the uid stored in the claim, whose profile names this SAP
+      // ID) can be released, and that holder's profile must change from
+      // not-released to released + suspended in the same write. A batch built
+      // from another student's (stale) card cannot satisfy this.
+      allow delete: if isAdmin()
+        && get(/databases/$(database)/documents/students/$(resource.data.uid)).data.sapId == sap
+        && get(/databases/$(database)/documents/students/$(resource.data.uid)).data.get('sapReleased', false) == false
+        && getAfter(/databases/$(database)/documents/students/$(resource.data.uid)).data.get('sapReleased', false) == true
+        && getAfter(/databases/$(database)/documents/students/$(resource.data.uid)).data.status == 'suspended';
+    }
+
+    // Admin roles: only full admins can grant/revoke, never for themselves.
+    match /admins/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create, update: if isAdmin() && uid != request.auth.uid && staffWrite()
+        && request.resource.data.role in ['admin', 'contentManager'];
+      allow delete: if isAdmin() && uid != request.auth.uid;
+    }
+
+    // Append-only audit trail.
+    match /auditLogs/{id} {
+      allow read: if isStaff();
+      // M4: the actor's uid and email must be the signed-in user's own.
+      allow create: if isStaff() && request.resource.data.actorUid == request.auth.uid
+        && request.resource.data.actorEmail == request.auth.token.email;
+      allow update, delete: if false;
+    }
+  }
+}
