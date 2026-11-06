@@ -208,7 +208,7 @@ CampusSync is distributed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  **Built with Flutter. Designed to simplify campus life.**
+  Built with Flutter. Designed to simplify campus life.
   <br>
   <a href="https://github.com/kasheeesh08">Kashish</a> ·
   <a href="https://github.com/kasheeesh08/CampusSync">GitHub Repository</a>
